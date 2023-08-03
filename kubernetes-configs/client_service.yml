@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: client
+  labels:
+    name: client
+    app: todo-app
+spec:
+  type: LoadBalancer
+  selector:
+    app: todo-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

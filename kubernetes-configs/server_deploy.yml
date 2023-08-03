@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-server
+  labels:
+    name: deploy-server
+    app: todo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: deploy-server
+      app: todo-app
+  template:
+    metadata:
+      name: deploy-server
+      labels:
+        name: deploy-server
+        app: todo-app
+    spec:
+      containers:
+        - name: deploy-server
+          image: "sukruciris/mern_server:latest"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo
+  labels:
+    name: mongo
+    app: todo-app
+spec:
+  type: ClusterIP
+  selector:
+    app: todo-app
+  ports:
+    - protocol: TCP
+      port: 27017
+      targetPort: 27017

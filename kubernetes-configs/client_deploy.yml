@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy-client
+  labels:
+    name: deploy-client
+    app: todo-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: deploy-client
+      app: todo-app
+  template:
+    metadata:
+      name: deploy-client
+      labels:
+        name: deploy-client
+        app: todo-app
+    spec:
+      containers:
+        - name: deploy-client
+          image: "sukruciris/mern_client:latest"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
