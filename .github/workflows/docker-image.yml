@@ -24,12 +24,14 @@ jobs:
           password: sukru
           port: 18913
           script: |
-            echo sukru | sudo -S git clone https://github.com/SUKRUCIRIS/MERN-Minikube-Ubuntu
+            echo sukru
+            sudo -S su root
+            git clone https://github.com/SUKRUCIRIS/MERN-Minikube-Ubuntu
             cd MERN-Minikube-Ubuntu
-            echo sukru | sudo -S minikube delete
-            echo sukru | sudo -S minikube start --driver=docker --force
-            echo sukru | sudo -S kubectl delete -R -f ./kubernetes-configs/ --ignore-not-found=true
-            echo sukru | sudo -S kubectl create -R -f ./kubernetes-configs/
+            minikube delete
+            minikube start --driver=docker --force
+            kubectl delete -R -f ./kubernetes-configs/ --ignore-not-found=true
+            kubectl create -R -f ./kubernetes-configs/
             cd ..
-            echo sukru | sudo -S rm MERN-Minikube-Ubuntu -r
-            echo sukru | sudo -S minikube tunnel
+            rm MERN-Minikube-Ubuntu -r
+            minikube tunnel
