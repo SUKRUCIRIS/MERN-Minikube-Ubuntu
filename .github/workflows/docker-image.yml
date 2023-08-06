@@ -32,4 +32,3 @@ jobs:
             kubectl create -R -f ./kubernetes-configs/
             cd ..
             rm MERN-Minikube-Ubuntu -r
-            minikube tunnel
