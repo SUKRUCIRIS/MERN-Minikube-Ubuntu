@@ -19,13 +19,11 @@ jobs:
       - run: docker compose push
       - uses: appleboy/ssh-action@v1.0.0
         with:
-          host: 2.tcp.eu.ngrok.io
-          username: sukru
+          host: 4.tcp.eu.ngrok.io
+          username: root
           password: sukru
-          port: 18913
+          port: 13977
           script: |
-            echo sukru
-            sudo -S su root
             git clone https://github.com/SUKRUCIRIS/MERN-Minikube-Ubuntu
             cd MERN-Minikube-Ubuntu
             minikube delete
