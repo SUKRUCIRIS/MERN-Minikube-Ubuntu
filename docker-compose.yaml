@@ -10,8 +10,6 @@ services:
       - server
     ports:
       - 80:80
-    networks:
-      - react-express
 
   server:
     container_name: server
@@ -21,9 +19,6 @@ services:
       - mongo
     ports:
       - 8080:8080
-    networks:
-      - express-mongo
-      - react-express
     image: sukruciris/mern_server:latest
 
   mongo:
@@ -32,10 +27,4 @@ services:
     build: mongo
     ports:
       - 27017:27017
-    networks:
-      - express-mongo
     image: sukruciris/mern_mongo:latest
-
-networks:
-  react-express:
-  express-mongo:
